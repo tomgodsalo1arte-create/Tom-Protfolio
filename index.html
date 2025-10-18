@@ -1,10 +1,458 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Test</title>
-</head>
-<body>
-    <h1>It works!</h1>
-</body>
-</html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Tom Godsalo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #0F0F0F;
+            color: #CFCFCF;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+    display: flex;
+    flex-direction: column; /* Stack on mobile */
+    align-items: center;
+    text-align: center;
+    background-color: #0F0F0F;
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+    gap: 15px; /* Space between sections */
+}
+
+@media (min-width: 768px) {
+    header {
+        flex-direction: row; /* Side-by-side on larger screens */
+        justify-content: center; /* Center items instead of space-between */
+        align-items: center;
+        gap: 60px; /* Adjust spacing to avoid a big gap */
+    }
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .profile {
+        flex-direction: row;
+        text-align: left;
+    }
+}
+
+.profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #E8A9B0;
+    margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+    .profile img {
+        margin-right: 15px;
+        margin-bottom: 0;
+    }
+}
+
+.profile h1 {
+    font-size: 45px;
+    margin: 0;
+}
+
+.profile p {
+    font-size: 18px;
+    margin: 5px 0 0;
+}
+
+.social-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icons a img {
+    width: 48px;
+    height: 48px;
+}
+
+.resume-icon img {
+    width: 48px;
+    height: 36px;
+}
+
+        .profile img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid #E8A9B0;
+        }
+
+        nav a {
+            color: #E8A9B0;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #A7E3E2;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .projects {
+            display: flex;
+            flex-direction: column;
+            /* gap: 2px; */
+        }
+
+        .project {
+            width: 100%;
+            background: #1E1E1E;
+
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 20px;
+
+        }
+
+        .project h3 {
+            color: #E8A9B0;
+            font-size: 22px;
+            margin-bottom: 10px;
+
+        }
+        .project h4 {
+            color: #E8A9B0;
+            font-size: 20px;
+            margin-bottom: 10px;
+
+        }
+        /* .project {
+            width: 100%;
+            background: #1E1E1E;
+        } */
+
+        .project:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 4px 10px rgba(167, 227, 226, 0.5);
+        }
+
+        .projects img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .screenshots {
+            display: flex;
+            gap: 20px;
+            /* Increased spacing for better layout */
+            flex-wrap: wrap;
+            justify-content: center;
+            /* Ensures images are centered */
+            align-items: flex-start;
+            /* Aligns items to the top */
+            margin-top: 20px;
+        }
+
+        .screenshot {
+            background: #1E1E1E;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            width: 360px;
+            /* Matches the education-card width */
+            min-width: 300px;
+            /* Ensures responsiveness */
+            box-shadow: 0px 4px 10px rgba(167, 227, 226, 0.2);
+        }
+
+        .screenshot img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            /* border: 2px solid #E8A9B0; */
+        }
+
+        .screenshot p {
+            color: #CFCFCF;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .skills span {
+            background: #292929;
+            padding: 8px 12px;
+            margin: 5px;
+            display: inline-block;
+            border-radius: 5px;
+            font-size: 18px;
+            color: #E8A9B0;
+            border: 2px solid #E8A9B0;
+            font-weight: 600;
+        }
+
+        .education-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .education-card {
+            background: #1E1E1E;
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .education-card h3 {
+            color: #FFFFFF;
+            margin: 0;
+        }
+
+        h1,
+        h2 {
+            color: #A7E3E2;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="profile">
+            <img src="profile.JPG" alt="Profile Picture">
+            <div>
+                <h1>Tom Godsalo</h1>
+                <p>Gameplay Programmer</p>
+            </div>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/tom-godsalo-936ba520b/" target="_blank">
+                <img src="in.png" alt="LinkedIn">
+            </a>
+            <a href="https://github.com/Tee8590?tab=repositories" target="_blank">
+                <img src="git.png" alt="GitHub">
+            </a>
+            <a href="https://drive.google.com/file/d/1W6ZvMHUTRSIRz3jKma2y1uWiAFvT3gft/view?usp=sharing" target="_blank"
+                class="resume-icon">
+                <img src="res.png" alt="Resume">
+            </a>
+        </div>
+    </header>
+
+    <div style="text-align: left; padding: 20px; max-width: 800px; margin: auto;">
+        <p style="color: #E8A9B0; font-size: 28px; line-height: 1.6;">
+            Game programmer specializing in systems and gameplay programming, focused on writing efficient, clean code
+            and tackling new challenges in game development.
+        </p>
+    </div>
+
+    <div class="container">
+        <section class="portfolio">
+            <h2>Game Programming</h2>
+
+            <div class="projects">
+                <!-- Game Project -->
+                <div class="project">
+                    <a href="https://youtube.com/shorts/LLporc3XBPQ?si=N2s2ki7GYICwOAez"
+                        target="_blank">
+                 
+                        <img src="project_tennis.png" alt="Pro Tennis">
+                    </a>
+                    <h3 style="color: #E8A9B0;">Pro Tennis Mobile | Unity, C# </h3>
+                    <p>
+                        <strong>Develop a tennis ball game mechanic for moblie </strong>
+                        <a href="https://github.com/Tee8590/Project-Tennis-r/tree/main/Assets" target="_blank">
+                    </p>
+
+                        <p> � Made <strong>Automatic Player Movement</strong> for Player & Enemy. <br>
+                        
+                            � <strong>Ball Mechanics: </strong>  Use  <strong>B�zier curves</strong> for realistic ball movement.<br>
+                       
+                            �<strong>Bat Hit Direction:</strong> Controlled by swipe input.<br>
+                        
+                            � Implement a <strong>serve rotation system.</strong> Include a <strong>scoring system</strong>for the game<br> 
+                        </p>
+                       
+                </div>
+
+
+                <div class="project">
+                    <a href="https://bitbucket.org/tomgodsalo/shootemup/src/main/"
+                        target="_blank">
+                        <img src="shooter.png" alt="Shooter">
+                    </a>
+                    <h3 style="color: #E8A9B0;">Space Shooter | Unity, C# - 11-2024 - Ongoing </h3>
+                    <p><strong>Developed a core gameplay mechanics, including player ship movement and
+                            shooting.</strong>Implemented technical planning and optimized the render pipeline.
+                    </p>
+
+                    <!-- <p>Add intuitive touch controls to enhance player experience.</p>
+                    <p>Implement simple <strong>procedural generation</strong> for dynamic gameplay.</p>
+                    <p>Deploy your finished game to a mobile platform.</p> -->
+
+                    <!-- Screenshots Section -->
+                    <div class="screenshots">
+                        <div class="screenshot">
+                            <a href="https://bitbucket.org/tomgodsalo/shootemup/src/main/Assets/Scripts/BulletManager.cs"
+                                target="_blank">
+                                <img src="bullet.png" alt="Gameplay Screenshot 1">
+                            </a>
+                            <p>Made a <strong>Bullet System</strong> for Player & Enemy. </p>
+                        </div>
+                        <div class="screenshot">
+                            <a href="https://bitbucket.org/tomgodsalo/shootemup/src/main/Assets/Scripts/Root/InputManager.cs"
+                                target="_blank">
+                                <img src="control.png" alt="Gameplay Screenshot 1">
+                            </a>
+                            <p>Made a Custom <strong>Input System,</strong> Remappable for both <strong>Game Controller</strong> & <strong>Keyboard</strong></p>
+                        </div>
+                        <div class="screenshot">
+                            <a href="https://drive.google.com/file/d/10P7e3yx0A_uBb7S4k3EtDHtBl4VLlXEm/view?usp=sharing"
+                                target="_blank">
+                                <img src="scanline.png" alt="Gameplay Screenshot 1">
+                            </a>
+                            <p>Made a Custom Scanline Shader in Unity ShaderGraphs</p>
+                        </div>
+                        <div class="screenshot">
+                            <a href="https://bitbucket.org/tomgodsalo/shootemup/src/main/Assets/Scripts/Root/MenuManager.cs"
+                                target="_blank">
+                                <img src="menu.png" alt="Gameplay Screenshot 1">
+                            </a>
+                            <p>Made a Scalable <strong>Menu System</strong></p>
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="project">
+                    <a href="https://youtu.be/qWLasXzgnOI?si=Z2AqxS1xvjY3ONqw" target="_blank">
+                        <img src="snake.jpg" alt="Snake">
+                    </a>
+                    <h3 style="color: #E8A9B0;">Mobile Snake Game | Unity, C# - 06-2024 - 07-2024 </h3>
+                    <p>
+                        <strong>A fully functional Mobile Game 2D</strong><br>
+                        � Configure an Android device for game development.<br>
+                        � Add intuitive touch controls to enhance player experience.<br>
+                        � Implement simple <strong>procedural generation</strong> for dynamic gameplay.<br>
+                        � Deploy your finished game to a mobile platform.
+                    </p>
+
+                </div>
+                <div class="project">
+                    <a href="https://youtu.be/V56BQXasTvc?si=RerXZShxi8hcrPp8" target="_blank">
+                        <img src="mdw.png" alt="MDR">
+                    </a>
+                    <h3 style="color: #E8A9B0;">Merlin�s Demon War | Unity, C# - 01-2024 - 05-2024 </h3>
+                    <p>
+                        <strong>Card Combat Game 2D</strong><br>
+                        � Understood the mechanics of the card combat genre.<br>
+                        � Gained expertise in importing and animating 2D assets.<br>
+                        � Implemented randomization and interaction systems for dynamic gameplay.<br>
+                        � Added sound effects to enhance the player experience.<br>
+                        � Developed a polished and fully functional card combat game.
+                    </p>
+
+                </div>
+                <div class="project">
+                    <a href="https://youtu.be/V56BQXasTvc?si=RerXZShxi8hcrPp8" target="_blank">
+                        <img src="return.png" alt="the return">
+                    </a>
+                    <h3 style="color: #E8A9B0;">The Return | Unity, C# - 12-2023 - 03-2024 </h3>
+                    <p>
+                        <strong>A Text Adventure 2D Game</strong><br>
+                        � Learn to build flexible and scalable game architectures.<br>
+                        � Gain practical experience in coding and game design.<br>
+                        � Complete a fully functional text-based adventure game, �The Return.�
+                    </p>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="education">
+            <h2>Education</h2>
+            <div class="education-container">
+                <div class="education-card">
+                    <h3><strong>XAMK South-Eastern Finland University of Applied Sciences, Video Games
+                            Creation IVGC Online | 04-2023 -12-2024 </strong></h3>
+                    <p>Higher Vocational Education Diploma, Game Programming</p>
+                    <a href="https://drive.google.com/file/d/1T1tkuB1fcYLERAKXTYgRWzRRnYVQ2_aw/view?usp=sharing"
+                        target="_blank">
+                        <img src="certificate.png" alt="LinkedIn">
+                    </a>
+                </div>
+                <div class="education-card">
+                    <h3><strong>Indira Gandhi National Open University (IGNOU), Masters in Computer Application 2024 -
+                            Ongoing </strong></h3>
+                    <p>Major: Software Engineering, Data Science. | Minor: AI & Machine Learning, and Cloud Computing.
+                    </p>
+                </div>
+                <div class="education-card">
+                    <h3><strong>Mahathma Gandhi University (MG), Bachelor's in Computer Application 2020 - 2023 </strong></h3>
+                    <p>Major: Software Engineering, Data Science. | Minor: AI & Machine Learning, and Cloud Computing.
+                    </p>
+                    <a href="https://drive.google.com/file/d/1T34lhbwk9LRDuBBnE5NKoZ_E_5W6W1Vq/view?usp=sharing"
+                        target="_blank">
+                        <img src="degree.jpg" alt="LinkedIn">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="technical-experience">
+            <h2>Technical Experience</h2>
+            <div class="skills">
+                <span>C#</span>
+                <span>Unity</span>
+                <span>ShaderGraphs</span>
+                <span>React.js</span>
+                <span>SQL</span>
+                <span>Java</span>
+                <span>JavaScript</span>
+            </div>
+        </section>
+
+        <section class="about" style="background-color: #A7E3E2; padding: 20px; border-radius: 10px; margin-top: 40px;">
+            <h2 style="color: #0F0F0F;">Hi, I'm Tom Godsalo</h2>
+            <!-- <p style="color: #0F0F0F;">
+                I am a 23-year-old <strong>game programmer</strong> -->
+                <!-- currently i'm doing Masters in Computer Application.
+                Before that, Diploma, Game Programming. -->
+            <!-- </p> -->
+            <p style="color: #0F0F0F;">
+                I describe myself as a <strong>problem solver</strong> who seeks opportunities to <strong>learn</strong>
+                new things,
+                while <strong>constantly improving</strong> my skills.
+                I enjoy creating games that feel great to play, with clean code that is easy to read.
+                I thrive on difficult challenges, sometimes a little too much, as I find it hard to let go
+                if I can't come up with a solution during a coding session.
+            </p>
+        </section>
+
+    </div>
+</body>
+
+</html>
