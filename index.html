@@ -232,7 +232,39 @@
             color: #FFFFFF;
             margin: 0;
         }
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    overflow: hidden;
+    border-radius: 10px;
+}
 
+/* video + image */
+.preview-video,
+.thumbnail {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+}
+
+/* hide video initially */
+.preview-video {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* hover behavior */
+.video-wrapper:hover .preview-video {
+    opacity: 1;
+}
+
+.video-wrapper:hover .thumbnail {
+    opacity: 0;
+}
         h1,
         h2 {
             color: #A7E3E2;
@@ -280,25 +312,28 @@
 
             <div class="projects">
                 <!-- Game Project -->
-                <div class="project">
-                    <a href="https://youtube.com/shorts/LLporc3XBPQ?si=N2s2ki7GYICwOAez"
-                        target="_blank">
-                 
-                        <img src="project_tennis.png" alt="Pro Tennis">
-                    </a>
-                    <h3 style="color: #E8A9B0;">Pro Tennis Mobile | Unity, C# </h3>
-                    <p>
-                        <strong>Develop a tennis ball game mechanic for moblie </strong>
-                        <a href="https://github.com/Tee8590/Project-Tennis-r/tree/main/Assets" target="_blank">
-                    </p>
+               <!-- ================= PROJECT 1 ================= -->
+<div class="project">
 
-                        <p> � Made <strong>Automatic Player Movement</strong> for Player & Enemy. <br>
+<div class="video-wrapper">
+    <video class="preview-video" muted loop playsinline>
+        <source src="videos/tennis.mp4" type="video/mp4">
+    </video>
+    <img src="project_tennis.png" class="thumbnail">
+</div>
+
+<h3 style="color:#E8A9B0;">Pro Tennis Mobile | Unity, C#</h3>
+
+
+                        <p> � Implement a <strong>Serve Rotation System.</strong> Include a <strong>Scoring System</strong>for the game<br> 
+                            
+                            � Made <strong>Automatic Player Movement</strong> for Player & Enemy. <br>
                         
-                            � <strong>Ball Mechanics: </strong>  Use  <strong>B�zier curves</strong> for realistic ball movement.<br>
+                            � <strong>Ball Mechanics: </strong>  Use  <strong>Bézier curves</strong> for realistic ball movement.<br>
                        
                             �<strong>Bat Hit Direction:</strong> Controlled by swipe input.<br>
                         
-                            � Implement a <strong>serve rotation system.</strong> Include a <strong>scoring system</strong>for the game<br> 
+                           
                         </p>
                        
                 </div>
@@ -351,49 +386,70 @@
                        
                     </div>
                 </div>
-                <div class="project">
-                    <a href="https://youtu.be/qWLasXzgnOI?si=Z2AqxS1xvjY3ONqw" target="_blank">
-                        <img src="snake.jpg" alt="Snake">
-                    </a>
-                    <h3 style="color: #E8A9B0;">Mobile Snake Game | Unity, C# - 06-2024 - 07-2024 </h3>
-                    <p>
-                        <strong>A fully functional Mobile Game 2D</strong><br>
-                        � Configure an Android device for game development.<br>
-                        � Add intuitive touch controls to enhance player experience.<br>
-                        � Implement simple <strong>procedural generation</strong> for dynamic gameplay.<br>
-                        � Deploy your finished game to a mobile platform.
-                    </p>
+               <!-- ================= PROJECT 3 ================= -->
+<div class="project">
 
-                </div>
-                <div class="project">
-                    <a href="https://youtu.be/V56BQXasTvc?si=RerXZShxi8hcrPp8" target="_blank">
-                        <img src="mdw.png" alt="MDR">
-                    </a>
-                    <h3 style="color: #E8A9B0;">Merlin�s Demon War | Unity, C# - 01-2024 - 05-2024 </h3>
-                    <p>
-                        <strong>Card Combat Game 2D</strong><br>
-                        � Understood the mechanics of the card combat genre.<br>
-                        � Gained expertise in importing and animating 2D assets.<br>
-                        � Implemented randomization and interaction systems for dynamic gameplay.<br>
-                        � Added sound effects to enhance the player experience.<br>
-                        � Developed a polished and fully functional card combat game.
-                    </p>
+    <div class="video-wrapper">
+        <video class="preview-video" muted loop playsinline>
+            <source src="videos/snake.mp4" type="video/mp4">
+        </video>
+        <img src="snake.jpg" class="thumbnail">
+    </div>
 
-                </div>
-                <div class="project">
-                    <a href="https://youtu.be/V56BQXasTvc?si=RerXZShxi8hcrPp8" target="_blank">
-                        <img src="return.png" alt="the return">
-                    </a>
-                    <h3 style="color: #E8A9B0;">The Return | Unity, C# - 12-2023 - 03-2024 </h3>
-                    <p>
-                        <strong>A Text Adventure 2D Game</strong><br>
-                        � Learn to build flexible and scalable game architectures.<br>
-                        � Gain practical experience in coding and game design.<br>
-                        � Complete a fully functional text-based adventure game, �The Return.�
-                    </p>
+    <h3 style="color: #E8A9B0;">Mobile Snake Game | Unity, C# - 06-2024 - 07-2024</h3>
 
-                </div>
-            </div>
+    <p>
+        <strong>A fully functional Mobile Game 2D</strong><br>
+        Configure an Android device for game development.<br>
+        Add intuitive touch controls to enhance player experience.<br>
+        Implement procedural generation for gameplay.<br>
+        Deploy to mobile platform.
+    </p>
+
+</div>
+
+<!-- ================= PROJECT 4 ================= -->
+<div class="project">
+
+    <div class="video-wrapper">
+        <video class="preview-video" muted loop playsinline>
+            <source src="videos/merlin.mp4" type="video/mp4">
+        </video>
+        <img src="mdw.png" class="thumbnail">
+    </div>
+
+    <h3 style="color: #E8A9B0;">Merlin’s Demon War | Unity, C# - 01-2024 - 05-2024</h3>
+
+    <p>
+        <strong>Card Combat Game 2D</strong><br>
+        Understood card combat mechanics.<br>
+        Imported and animated 2D assets.<br>
+        Implemented randomization systems.<br>
+        Added sound effects.
+    </p>
+
+</div>
+
+<!-- ================= PROJECT 5 ================= -->
+<div class="project">
+
+    <div class="video-wrapper">
+        <video class="preview-video" muted loop playsinline>
+            <source src="videos/return.mp4" type="video/mp4">
+        </video>
+        <img src="return.png" class="thumbnail">
+    </div>
+
+    <h3 style="color: #E8A9B0;">The Return | Unity, C# - 12-2023 - 03-2024</h3>
+
+    <p>
+        <strong>A Text Adventure 2D Game</strong><br>
+        Built scalable architecture.<br>
+        Practiced game design systems.<br>
+        Delivered a complete playable experience.
+    </p>
+
+</div>
         </section>
 
         <section class="education">
@@ -457,6 +513,20 @@
         </section>
 
     </div>
+  <script>
+document.querySelectorAll('.video-wrapper').forEach(wrapper => {
+    const video = wrapper.querySelector('video');
+
+    wrapper.addEventListener('mouseenter', () => {
+        video.play();
+    });
+
+    wrapper.addEventListener('mouseleave', () => {
+        video.pause();
+        video.currentTime = 0;
+    });
+});
+</script> 
 </body>
 
 </html>
