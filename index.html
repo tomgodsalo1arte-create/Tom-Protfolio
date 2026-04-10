@@ -257,6 +257,44 @@
     transition: opacity 0.3s ease;
 }
 
+
+
+.professional-card {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* smaller video */
+.video-wrapper.small {
+    width: 320px;
+    height: 180px;
+    flex-shrink: 0;
+}
+
+/* text next to it */
+.project-content {
+    flex: 1;
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+    .professional-card {
+        flex-direction: column;
+    }
+
+    .video-wrapper.small {
+        width: 100%;
+        height: 220px;
+    }
+}
+
+.current-role {
+    color: #A7E3E2;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
 /* hover behavior */
 .video-wrapper:hover .preview-video {
     opacity: 1;
@@ -279,6 +317,10 @@
             <div>
                 <h1>Tom Godsalo</h1>
                 <p>Game Developer | Gameplay Programmer | Unity | C#</p>
+
+                <p class="current-role">
+                 Currently coding at: <strong>Archfiend Studios</strong> 
+                </p>
             </div>
         </div>
         <div class="social-icons">
@@ -307,13 +349,46 @@
     </div>
 
     <div class="container">
+
+       
+<section class="portfolio">
+            <h2>Professional Projects</h2>
+
+    <!-- ================= PROFESSIONAL PROJECTS ================= -->
+  <div class="project professional-card">
+
+    <!-- <div class="video-wrapper small">
+        <video class="preview-video" muted loop playsinline>
+            <source src="videos/pro_project.mp4" type="video/mp4">
+        </video>
+        <img src="pro_project.png" class="thumbnail">
+    </div> -->
+
+    <div class="project-content">
+        <h3 style="color: #E8A9B0;">
+            Mobile Stealth Game | Unity, C#
+        </h3>
+
+        <p>
+            <strong>Gameplay Programmer</strong>
+        </p>
+
+    <p>
+Developed the <strong>Core Game Architecture</strong> effort to to be <strong>Scalable</strong> easily.
+Designed a <strong>flexible weapon system</strong> for enemies, supporting weapons like pistols, assault rifles, snipers, and shotguns, <strong>health system</strong>,<strong>damageble system</strong>, all of which can be <strong>easily configured through the Inspector</strong>.
+The enemy AI is built using a <strong>state machine (FSM)</strong>, 
+<strong>boss behavioren along with more health and features whcich can be tuned</strong>, and <strong>different enemy variations</strong>can be made by changing <strong>weapons</strong>, <strong>health</strong>, <strong>Attack style</strong>.
+</p>
+    </div>
+
+</div>
         <section class="portfolio">
-            <h2>Game Programming</h2>
+            <h2>Personal Projects</h2>
 
             <div class="projects">
                 <!-- Game Project -->
                <!-- ================= PROJECT 1 ================= -->
-<div class="project">
+    <div class="project">
 
 <div class="video-wrapper">
     <video class="preview-video" muted loop playsinline>
@@ -325,13 +400,13 @@
 <h3 style="color:#E8A9B0;">Pro Tennis Mobile | Unity, C#</h3>
 
 
-                        <p> � Implement a <strong>Serve Rotation System.</strong> Include a <strong>Scoring System</strong>for the game<br> 
+                        <p> • Implement a <strong>Serve Rotation System.</strong> Include a <strong>Scoring System</strong>for the game<br> 
                             
-                            � Made <strong>Automatic Player Movement</strong> for Player & Enemy. <br>
+                            • Made <strong>Automatic Player Movement</strong> for Player & Enemy. <br>
                         
-                            � <strong>Ball Mechanics: </strong>  Use  <strong>Bézier curves</strong> for realistic ball movement.<br>
+                            • <strong>Ball Mechanics: </strong>  Use  <strong>Bézier curves</strong> for realistic ball movement.<br>
                        
-                            �<strong>Bat Hit Direction:</strong> Controlled by swipe input.<br>
+                            • <strong>Bat Hit Direction:</strong> Controlled by swipe input.<br>
                         
                            
                         </p>
@@ -485,13 +560,17 @@
         <section class="technical-experience">
             <h2>Technical Experience</h2>
             <div class="skills">
+                <span>Game Architecture</span>
+                <span>System Design</span>
                 <span>C#</span>
                 <span>Unity</span>
                 <span>ShaderGraphs</span>
-                <span>React.js</span>
-                <span>SQL</span>
-                <span>Java</span>
                 <span>JavaScript</span>
+                 <span>Java</span>
+                <!-- <span>React.js</span> -->
+                <span>SQL</span>
+               
+                
             </div>
         </section>
 
