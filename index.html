@@ -743,17 +743,16 @@
 </div>
 <!-- Script end -->
    <script>
-document.querySelectorAll('.video-wrapper').forEach(wrapper => {
-    const video = wrapper.querySelector('video');
+document.addEventListener("DOMContentLoaded", () => {
 
-    wrapper.addEventListener('mouseenter', () => {
-        video.play();
+    document.querySelectorAll(".preview-video").forEach(video => {
+
+        video.addEventListener("loadeddata", () => {
+            video.play().catch(err => console.log(err));
+        });
+
     });
 
-    wrapper.addEventListener('mouseleave', () => {
-        video.pause();
-        video.currentTime = 0;
-    });
 });
 </script>
 </body>
