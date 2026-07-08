@@ -1,598 +1,748 @@
 <!DOCTYPE html>
-<html lang="en">
 
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Tom Godsalo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Portfolio - Tom Godsalo</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        /* ================= TOP SKILLS BANNER ================= */
+.top-skills-banner {
+    background: #141414;
+    border: 1px solid #262626;
+    border-top: 3px solid #A7E3E2; /* Aqua highlight border at top */
+    border-radius: 10px;
+    padding: 25px;
+    margin: 30px auto;
+    max-width: 1060px;
+}
+
+.skills-grid-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .skills-grid-layout {
+        grid-template-columns: repeat(4, 1fr); /* 4 perfect columns on desktop */
+    }
+}
+
+.skills-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.skills-column h4 {
+    color: #A7E3E2; /* Group subheaders in accent color */
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 10px 0;
+}
+
+.skills-column p {
+    color: #FFFFFF;
+    font-size: 15px;
+    margin: 0;
+    line-height: 1.5;
+    font-weight: 400;
+}
+        /* ================= GLOBAL STYLES & CONTRAST FIX ================= */
         body {
             background-color: #0F0F0F;
-            color: #CFCFCF;
+            color: #E0E0E0; /* Crisp silver-gray for excellent text readability */
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
         }
 
+        h1, h2 {
+            color: #FFFFFF; /* High contrast headers */
+        }
+
+        h2 {
+            font-size: 28px;
+            border-bottom: 2px solid #A7E3E2; /* Clean aqua underline accent */
+            padding-bottom: 8px;
+            margin-top: 40px;
+        }
+
+        strong {
+            color: #A7E3E2; /* Use aqua for emphasis instead of harsh red */
+        }
+
+        /* ================= HEADER & PROFILE ================= */
         header {
-    display: flex;
-    flex-direction: column; /* Stack on mobile */
-    align-items: center;
-    text-align: center;
-    background-color: #0F0F0F;
-    padding: 20px;
-    max-width: 1000px;
-    margin: auto;
-    gap: 15px; /* Space between sections */
-}
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-color: #141414;
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: auto;
+            gap: 15px;
+            border-bottom: 1px solid #222;
+        }
 
-@media (min-width: 768px) {
-    header {
-        flex-direction: row; /* Side-by-side on larger screens */
-        justify-content: center; /* Center items instead of space-between */
-        align-items: center;
-        gap: 60px; /* Adjust spacing to avoid a big gap */
-    }
-}
+        @media (min-width: 768px) {
+            header {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+                padding: 40px;
+            }
+        }
 
-.profile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
+        .profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+        }
 
-@media (min-width: 768px) {
-    .profile {
-        flex-direction: row;
-        text-align: left;
-    }
-}
-
-.profile img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 3px solid #E8A9B0;
-    margin-bottom: 10px;
-}
-
-@media (min-width: 768px) {
-    .profile img {
-        margin-right: 15px;
-        margin-bottom: 0;
-    }
-}
-
-.profile h1 {
-    font-size: 45px;
-    margin: 0;
-}
-
-.profile p {
-    font-size: 18px;
-    margin: 5px 0 0;
-}
-
-.social-icons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 10px;
-}
-
-.social-icons a img {
-    width: 48px;
-    height: 48px;
-}
-
-.resume-icon img {
-    width: 48px;
-    height: 36px;
-}
+        @media (min-width: 768px) {
+            .profile {
+                flex-direction: row;
+                text-align: left;
+            }
+        }
 
         .profile img {
-            width: 120px;
-            height: 120px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
-            border: 2px solid #E8A9B0;
+            border: 3px solid #A7E3E2; /* Aqua ring */
+            object-fit: cover;
         }
 
-        nav a {
-            color: #E8A9B0;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
+        .profile h1 {
+            font-size: 42px;
+            margin: 0;
+            color: #FFFFFF;
         }
 
-        nav a:hover {
+        .profile p {
+            font-size: 16px;
+            margin: 5px 0 0;
+            color: #B3B3B3;
+        }
+
+        .current-role {
             color: #A7E3E2;
+            font-size: 15px;
+            margin-top: 8px;
         }
 
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .social-icons a img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.2s;
+        }
+
+        .social-icons a:hover img {
+            transform: scale(1.1);
+        }
+
+        /* ================= CONTAINER & RESPONSIVE GRID ================= */
         .container {
             padding: 20px;
-            max-width: 1000px;
+            max-width: 1100px;
             margin: auto;
         }
 
-        .projects {
-            display: flex;
-            flex-direction: column;
-            /* gap: 2px; */
+        .intro-text {
+            font-size: 24px;
+            line-height: 1.6;
+            color: #E0E0E0;
+            max-width: 900px;
+            margin: 40px auto 20px auto;
+            padding: 0 20px;
         }
 
-        .project {
-            width: 100%;
-            background: #1E1E1E;
-
-            padding: 20px;
-            border-radius: 10px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            margin-bottom: 20px;
-
-        }
-
-        .project h3 {
-            color: #E8A9B0;
-            font-size: 22px;
-            margin-bottom: 10px;
-
-        }
-        .project h4 {
-            color: #E8A9B0;
-            font-size: 20px;
-            margin-bottom: 10px;
-
-        }
-        /* .project {
-            width: 100%;
-            background: #1E1E1E;
-        } */
-
-        .project:hover {
-            transform: scale(1.05);
-            box-shadow: 0px 4px 10px rgba(167, 227, 226, 0.5);
-        }
-
-        .projects img {
-            width: 100%;
-            height: 480px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        .screenshots {
-            display: flex;
-            gap: 20px;
-            /* Increased spacing for better layout */
-            flex-wrap: wrap;
-            justify-content: center;
-            /* Ensures images are centered */
-            align-items: flex-start;
-            /* Aligns items to the top */
+        /* Desktop Layout Upgrade: 2-Column Grid instead of long vertical list */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
             margin-top: 20px;
         }
 
+        @media (min-width: 850px) {
+            .projects-grid {
+                grid-template-columns: 1fr 1fr; /* Two side-by-side on desktop */
+            }
+            .project.professional-card {
+                grid-column: span 2; /* Keep professional project wide */
+            }
+        }
+
+        /* ================= PROJECT CARDS ================= */
+        .project {
+            background: #181818;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #262626;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project:hover {
+            transform: translateY(-4px);
+            border-color: #A7E3E2;
+            box-shadow: 0px 8px 24px rgba(167, 227, 226, 0.15);
+        }
+
+        .project h3 {
+            color: #A7E3E2; /* Clean accent color for titles */
+            font-size: 22px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #CCCCCC;
+            margin: 5px 0;
+        }
+.project-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 36px;
+    padding: 0 12px;
+
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    box-sizing: border-box;
+}
+
+.project-badge-outline {
+    color: #A7E3E2;
+    border: 1px solid #A7E3E2;
+}
+
+.project-badge-filled {
+    background: rgba(255,255,255,.04);
+    color: #71717A;
+}
+        /* Professional project banner layout adjustment */
+        .professional-card {
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+            .professional-card {
+                flex-direction: row;
+                gap: 25px;
+                align-items: center;
+            }
+        }
+
+        /* ================= VIDEO/MEDIA CONTAINER ================= */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #000;
+        }
+
+        .professional-card .video-wrapper.small {
+            width: 100%;
+            height: 200px;
+        }
+
+        @media (min-width: 768px) {
+            .professional-card .video-wrapper.small {
+                width: 320px;
+                height: 180px;
+                flex-shrink: 0;
+            }
+        }
+
+        .preview-video, .thumbnail {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            top: 0;
+            left: 0;
+        }
+
+        .preview-video {
+           opacity: 1 !important;
+             z-index: 999;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-wrapper:hover .preview-video {
+            opacity: 1;
+        }
+
+        /* ================= SCREENSHOTS GALLERY ================= */
+        .screenshots {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
         .screenshot {
-            background: #1E1E1E;
-            padding: 10px;
-            border-radius: 10px;
+            background: #222222;
+            padding: 8px;
+            border-radius: 8px;
             text-align: center;
-            width: 360px;
-            /* Matches the education-card width */
-            min-width: 300px;
-            /* Ensures responsiveness */
-            box-shadow: 0px 4px 10px rgba(167, 227, 226, 0.2);
+            border: 1px solid #333;
         }
 
         .screenshot img {
             width: 100%;
             height: auto;
-            border-radius: 5px;
-            /* border: 2px solid #E8A9B0; */
+            border-radius: 4px;
         }
 
         .screenshot p {
-            color: #CFCFCF;
-            font-size: 14px;
-            margin-top: 10px;
+            font-size: 12px;
+            color: #AAAAAA;
+            margin-top: 6px;
+        }
+
+        /* ================= SKILLS AND BADGES ================= */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
         }
 
         .skills span {
-            background: #292929;
-            padding: 8px 12px;
-            margin: 5px;
-            display: inline-block;
-            border-radius: 5px;
-            font-size: 18px;
-            color: #E8A9B0;
-            border: 2px solid #E8A9B0;
+            background: #1A2625; /* Dark teal hue background */
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #A7E3E2;
+            border: 1px solid rgba(167, 227, 226, 0.3);
             font-weight: 600;
         }
 
+        /* ================= EDUCATION CARDS ================= */
         .education-container {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr;
             gap: 20px;
-            flex-wrap: wrap;
+        }
+
+        @media (min-width: 768px) {
+            .education-container {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
         }
 
         .education-card {
-            background: #1E1E1E;
+            background: #181818;
             padding: 20px;
             border-radius: 10px;
-            flex: 1;
-            min-width: 300px;
+            border: 1px solid #262626;
         }
 
         .education-card h3 {
             color: #FFFFFF;
-            margin: 0;
+            font-size: 16px;
+            margin-top: 0;
         }
-.video-wrapper {
-    position: relative;
-    width: 100%;
-    height: 480px;
-    overflow: hidden;
-    border-radius: 10px;
-}
 
-/* video + image */
-.preview-video,
-.thumbnail {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    top: 0;
-    left: 0;
-}
+        .education-card img {
+            height: 35px;
+            margin-top: 10px;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
 
-/* hide video initially */
-.preview-video {
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
+        .education-card img:hover {
+            opacity: 1;
+        }
 
+        /* ================= ABOUT FOOTER ================= */
+        .about {
+            background-color: #141414;
+            border-left: 4px solid #A7E3E2;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 50px;
+        }
 
-
-.professional-card {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-}
-
-/* smaller video */
-.video-wrapper.small {
-    width: 320px;
-    height: 180px;
-    flex-shrink: 0;
-}
-
-/* text next to it */
-.project-content {
-    flex: 1;
-}
-
-/* MOBILE FIX */
-@media (max-width: 768px) {
-    .professional-card {
-        flex-direction: column;
-    }
-
-    .video-wrapper.small {
-        width: 100%;
-        height: 220px;
-    }
-}
-
-.current-role {
-    color: #A7E3E2;
-    font-size: 16px;
-    margin-top: 5px;
-}
-
-/* hover behavior */
-.video-wrapper:hover .preview-video {
-    opacity: 1;
-}
-
-.video-wrapper:hover .thumbnail {
-    opacity: 0;
-}
-        h1,
-        h2 {
+        .about h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
             color: #A7E3E2;
         }
-    </style>
+    
+.auto-style-1 { padding-top: 0; padding-bottom: 0; }
+
+.auto-style-2 { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; }
+
+.auto-style-3 { margin: 0; }
+
+.auto-style-4 { font-size: 12px; color: #71717A; background: rgba(255, 255, 255, 0.04); padding: 4px 10px; border-radius: 6px; font-weight: 600; }
+
+.auto-style-5 { margin: 0 0 15px 0; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+
+.auto-style-6 { color: #71717A; }
+
+.auto-style-7 { color: #A7E3E2; }
+
+.auto-style-8 { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+
+.auto-style-9 { font-size: 11px; background: #1A2625; color: #A7E3E2; padding: 4px 8px; border-radius: 4px; font-weight: 600; border: 1px solid rgba(167, 227, 226, 0.2); }
+
+.auto-style-10 { font-size: 11px; background: #1A2625; color: #A7E3E2; padding: 4px 8px; border-radius: 4px; font-weight: 600; border: 1px solid rgba(167, 227, 226, 0.2); }
+
+.auto-style-11 { font-size: 11px; background: #1A2625; color: #A7E3E2; padding: 4px 8px; border-radius: 4px; font-weight: 600; border: 1px solid rgba(167, 227, 226, 0.2); }
+
+.auto-style-12 { font-size: 11px; background: #2A1F30; color: #D8A7E3; padding: 4px 8px; border-radius: 4px; font-weight: 600; border: 1px solid rgba(216, 167, 227, 0.2); }
+
+.auto-style-13 { margin: 0; padding-left: 20px; color: #E0E0E0; font-size: 15px; line-height: 1.7; }
+
+.auto-style-14 { margin-bottom: 10px; }
+
+.auto-style-15 { color: #A7E3E2; }
+
+.auto-style-16 { margin-bottom: 10px; }
+
+.auto-style-17 { color: #A7E3E2; }
+
+.auto-style-18 { margin-bottom: 10px; }
+
+.auto-style-19 { color: #A7E3E2; }
+
+.auto-style-20 { margin-bottom: 10px; }
+
+.auto-style-21 { margin-bottom: 0; }
+
+.auto-style-22 { padding-top: 20px; }
+
+.auto-style-23 { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; }
+
+.auto-style-24 { margin: 0; color: #A7E3E2; font-size: 22px; }
+
+.auto-style-25 { display: flex; gap: 8px; }
+
+.auto-style-26 { font-size: 11px; color: #A7E3E2; border: 1px solid #A7E3E2; padding: 3px 8px; border-radius: 6px; font-weight: 500; }
+
+.auto-style-27 { font-size: 12px; color: #71717A; background: rgba(255, 255, 255, 0.04); padding: 4px 10px; border-radius: 6px; font-weight: 600; }
+
+.auto-style-28 { margin: 0 0 15px 0; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+
+.auto-style-29 { color: #71717A; }
+
+.auto-style-30 { color: #A7E3E2; }
+
+.auto-style-31 { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+
+.auto-style-32 { font-size: 11px; background: #1A2625; color: #A7E3E2; padding: 4px 8px; border-radius: 4px; font-weight: 600; border: 1px solid rgba(167, 227, 226, 0.2); }
+
+.auto-style-33 { font-size: 11px; background: #1A2625; color: #A7E3E2; padding: 4px 8px; border-radius: 4px; font-weight: 600; border: 1px solid rgba(167, 227, 226, 0.2); }
+
+.auto-style-34 { font-size: 11px; background: #1A2625; color: #A7E3E2; padding: 4px 8px; border-radius: 4px; font-weight: 600; border: 1px solid rgba(167, 227, 226, 0.2); }
+
+.auto-style-35 { font-size: 11px; background: #1A2625; color: #A7E3E2; padding: 4px 8px; border-radius: 4px; font-weight: 600; border: 1px solid rgba(167, 227, 226, 0.2); }
+
+.auto-style-36 { margin: 0; padding-left: 20px; color: #E0E0E0; font-size: 15px; line-height: 1.7; }
+
+.auto-style-37 { margin-bottom: 10px; }
+
+.auto-style-38 { color: #A7E3E2; }
+
+.auto-style-39 { margin-bottom: 10px; }
+
+.auto-style-40 { margin-bottom: 0; }
+
+.auto-style-41 { height: auto; }
+
+.auto-style-42 { width:100%; border-radius:8px; }
+</style>
 </head>
-
 <body>
-    <header>
-        <div class="profile">
-            <img src="profile.JPG" alt="Profile Picture">
-            <div>
-                <h1>Tom Godsalo</h1>
-                <p>Game Developer | Gameplay Programmer | Unity | C#</p>
-
-                <p class="current-role">
-                 Currently coding at: <strong>Archfiend Studios</strong> 
-                </p>
-            </div>
-        </div>
-        <div class="social-icons">
-            <a href="https://www.linkedin.com/in/tom-godsalo-936ba520b/" target="_blank">
-                <img src="in.png" alt="LinkedIn">
-            </a>
-            <a href="https://github.com/Tee8590?tab=repositories" target="_blank">
-                <img src="git.png" alt="GitHub">
-            </a>
-            <a href="https://drive.google.com/file/d/1YsiLreuIgXcLt-a3HsyoEBy7yZgxlZKH/view?usp=sharing" target="_blank"
-                class="resume-icon">
-                <img src="res.png" alt="Resume">
-            </a>
-            <!--<a href="https://drive.google.com/file/d/1W6ZvMHUTRSIRz3jKma2y1uWiAFvT3gft/view?usp=sharing" target="_blank"
-                class="resume-icon">
-                <img src="res.png" alt="Resume">
-            </a>-->
-        </div>
-    </header>
-
-    <div style="text-align: left; padding: 20px; max-width: 800px; margin: auto;">
-        <p style="color: #E8A9B0; font-size: 28px; line-height: 1.6;">
-            Game programmer specializing in systems and gameplay programming, focused on writing efficient, clean code
-            and tackling new challenges in game development.
-        </p>
-    </div>
-
-    <div class="container">
-
-       
-<section class="portfolio">
-            <h2>Professional Projects</h2>
-
-    <!-- ================= PROFESSIONAL PROJECTS ================= -->
-  <div class="project professional-card">
-
-    <!-- <div class="video-wrapper small">
-        <video class="preview-video" muted loop playsinline>
-            <source src="videos/pro_project.mp4" type="video/mp4">
-        </video>
-        <img src="pro_project.png" class="thumbnail">
-    </div> -->
-
-    <div class="project-content">
-        <h3 style="color: #E8A9B0;">
-            Mobile Stealth Game | Unity, C#
-        </h3>
-
-        <p>
-            <strong>Gameplay Programmer</strong>
-        </p>
-
-    <p>
-Developed the <strong>Core Game Architecture</strong> effort to to be <strong>Scalable</strong> easily.
-Designed a <strong>flexible weapon system</strong> for enemies, supporting weapons like pistols, assault rifles, snipers, and shotguns, <strong>health system</strong>,<strong>damageble system</strong>, all of which can be <strong>easily configured through the Inspector</strong>.
-The enemy AI is built using a <strong>state machine (FSM)</strong>, 
-<strong>boss behavioren along with more health and features whcich can be tuned</strong>, and <strong>different enemy variations</strong>can be made by changing <strong>weapons</strong>, <strong>health</strong>, <strong>Attack style</strong>.
+<header>
+<div class="profile">
+<img alt="Tom Godsalo" src="profile.JPG"/>
+<div>
+<h1>Tom Godsalo</h1>
+<p>Game Developer | Gameplay Programmer | Unity | C#</p>
+<p class="current-role">
+                    Currently coding at: <strong>Archfiend Studios</strong>
 </p>
-    </div>
-
 </div>
-        <section class="portfolio">
-            <h2>Personal Projects</h2>
-
-            <div class="projects">
-                <!-- Game Project -->
-               <!-- ================= PROJECT 1 ================= -->
-    <div class="project">
-
+</div>
+<div class="social-icons">
+<a href="https://www.linkedin.com/in/tom-godsalo-936ba520b/" target="_blank">
+<img alt="LinkedIn" src="in.png"/>
+</a>
+<a href="https://github.com/Tee8590?tab=repositories" target="_blank">
+<img alt="GitHub" src="git.png"/>
+</a>
+<a href="https://drive.google.com/file/d/1YsiLreuIgXcLt-a3HsyoEBy7yZgxlZKH/view?usp=sharing" target="_blank">
+<img alt="Resume" src="res.png"/>
+</a>
+</div>
+</header>
+<div class="intro-text">
+        Game programmer specializing in systems and gameplay programming, focused on writing efficient, clean code and tackling complex architectural challenges in game development.
+    </div>
+<!-- ================= ADDED: TOP SKILLS BANNER ================= -->
+<div class="container auto-style-1">
+<div class="top-skills-banner">
+<div class="skills-grid-layout">
+<div class="skills-column">
+<h4>Languages</h4>
+<p>C#, Java, JavaScript</p>
+</div>
+<div class="skills-column">
+<h4>Engines &amp; Tools</h4>
+<p>Unity Engine, URP, ShaderGraphs, Git / Plastic SCM</p>
+</div>
+<div class="skills-column">
+<h4>Architecture</h4>
+<p>Component-Based Architecture, Finite State Machines (FSM), Event-Driven Systems</p>
+</div>
+<div class="skills-column">
+<h4>Core Strengths</h4>
+<p>Gameplay Programming, AI Systems, System Design, Performance Optimization</p>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<h2>Professional Projects</h2>
+<div class="projects-grid">
+<!-- ================= PROFESSIONAL STEALTH GAME ================= -->
+<div class="project professional-card">
+<div class="project-content">
+<div class="auto-style-2">
+<h3 class="auto-style-3">Mobile Stealth Game</h3>
+<span class="auto-style-4">Unity / C#</span>
+</div>
+<!-- Updated Role Text -->
+<p class="auto-style-5">
+<span class="auto-style-6">Role:</span> <span class="auto-style-7">Gameplay Programmer</span>
+</p>
+<!-- Sub-Component Technical Tags (Keep these exactly as you have them) -->
+<div class="auto-style-8">
+<span class="auto-style-9">Game Architecture</span>
+<span class="auto-style-10">AI Systems</span>
+<span class="auto-style-11">Mobile Optimization</span>
+<span class="auto-style-12">Team Collaboration</span>
+</div>
+<!-- Updated Bullet Points (Using proper ul/li for hanging indents) -->
+<ul class="auto-style-13">
+<li class="auto-style-14">Engineered a highly scalable core game loop using <strong class="auto-style-15">Component-Based Architecture</strong> to cleanly decouple game logic from presentation layers.</li>
+<li class="auto-style-16">Programmed enemy behaviors using a structured <strong class="auto-style-17">Finite State Machine (FSM)</strong>, allowing modular tuning for standard guards, multi-phase boss behaviors, and custom patrol states directly within the Inspector.</li>
+<li class="auto-style-18">Implemented optimized <strong class="auto-style-19">Event-Driven Systems</strong> for health, damage registration, and alert logic to eliminate unnecessary frame updates and maintain high performance profiles on mid-range mobile devices.</li>
+<li class="auto-style-20">Designed an extensible, data-driven weapon framework configured entirely via script parameters, empowering designers to instantly iterate on fire rates, hitboxes, and projectile mechanics.</li>
+<li class="auto-style-21">Collaborated closely with project management and fellow engineers to maintain clean version control pipelines, ensuring seamless integration of complex features across the development team.</li>
+</ul>
+</div>
+</div>
+</div>
+<h2>Personal Projects</h2>
+<div class="projects-grid">
+<!-- ================= PRO TENNIS MOBILE ================= -->
+<!-- ================= PRO TENNIS MOBILE ================= -->
+<!-- ================= PRO TENNIS MOBILE ================= -->
+<div class="project">
 <div class="video-wrapper">
-    <video class="preview-video" muted loop playsinline>
-        <source src="videos/tennis.mp4" type="video/mp4">
-    </video>
-    <img src="project_tennis.png" class="thumbnail">
+<video class="preview-video" loop="" muted="" playsinline="">
+<source src="videos/tennis.mp4" type="video/mp4"/>
+</video>
+<img alt="Tennis Preview" class="thumbnail" src="project_tennis.png"/>
 </div>
+<div class="project-content auto-style-22">
+<!-- Header & Badges -->
+<div class="auto-style-23">
+<h3 class="auto-style-24">Pro Tennis Mobile
 
-<h3 style="color:#E8A9B0;">Pro Tennis Mobile | Unity, C#</h3>
+    <div class="project-badges">
+    <span class="project-badge project-badge-outline">May 2025 - Jun 2025</span>
+    <span class="project-badge project-badge-filled">Unity / C#</span>
+</div>
+</h3>
 
-
-                        <p> • Implement a <strong>Serve Rotation System.</strong> Include a <strong>Scoring System</strong>for the game<br> 
-                            
-                            • Made <strong>Automatic Player Movement</strong> for Player & Enemy. <br>
-                        
-                            • <strong>Ball Mechanics: </strong>  Use  <strong>Bézier curves</strong> for realistic ball movement.<br>
-                       
-                            • <strong>Bat Hit Direction:</strong> Controlled by swipe input.<br>
-                        
-                           
-                        </p>
-                       
-                </div>
-
-
-                <div class="project">
-                    <a href="https://bitbucket.org/tomgodsalo/shootemup/src/main/"
-                        target="_blank">
-                        <img src="shooter.png" alt="Shooter">
-                    </a>
-                    <h3 style="color: #E8A9B0;">Space Shooter | Unity, C# - 11-2024 - Ongoing </h3>
-                    <p><strong>Developed a core gameplay mechanics, including player ship movement and
-                            shooting.</strong>Implemented technical planning and optimized the render pipeline.
-                    </p>
-
-                    <!-- <p>Add intuitive touch controls to enhance player experience.</p>
-                    <p>Implement simple <strong>procedural generation</strong> for dynamic gameplay.</p>
-                    <p>Deploy your finished game to a mobile platform.</p> -->
-
-                    <!-- Screenshots Section -->
-                    <div class="screenshots">
-                        <div class="screenshot">
-                            <a href="https://bitbucket.org/tomgodsalo/shootemup/src/main/Assets/Scripts/BulletManager.cs"
-                                target="_blank">
-                                <img src="bullet.png" alt="Gameplay Screenshot 1">
-                            </a>
-                            <p>Made a <strong>Bullet System</strong> for Player & Enemy. </p>
-                        </div>
-                        <div class="screenshot">
-                            <a href="https://bitbucket.org/tomgodsalo/shootemup/src/main/Assets/Scripts/Root/InputManager.cs"
-                                target="_blank">
-                                <img src="control.png" alt="Gameplay Screenshot 1">
-                            </a>
-                            <p>Made a Custom <strong>Input System,</strong> Remappable for both <strong>Game Controller</strong> & <strong>Keyboard</strong></p>
-                        </div>
-                        <div class="screenshot">
-                            <a href="https://drive.google.com/file/d/10P7e3yx0A_uBb7S4k3EtDHtBl4VLlXEm/view?usp=sharing"
-                                target="_blank">
-                                <img src="scanline.png" alt="Gameplay Screenshot 1">
-                            </a>
-                            <p>Made a Custom Scanline Shader in Unity ShaderGraphs</p>
-                        </div>
-                        <div class="screenshot">
-                            <a href="https://bitbucket.org/tomgodsalo/shootemup/src/main/Assets/Scripts/Root/MenuManager.cs"
-                                target="_blank">
-                                <img src="menu.png" alt="Gameplay Screenshot 1">
-                            </a>
-                            <p>Made a Scalable <strong>Menu System</strong></p>
-                        </div>
-                       
-                    </div>
-                </div>
-               <!-- ================= PROJECT 3 ================= -->
+</div>
+<!-- Role Text -->
+<p class="auto-style-28">
+<span class="auto-style-29">Role:</span> <span class="auto-style-30">Designer / Developer</span>
+</p>
+<!-- Sub-Component Technical Tags -->
+<div class="auto-style-31">
+<span class="auto-style-32">Physics Simulation</span>
+<span class="auto-style-33">Applied Mathematics</span>
+<span class="auto-style-34">Input Systems</span>
+<span class="auto-style-35">AI Programming</span>
+</div>
+<!-- Bullet Points -->
+<!-- Bullet Points with Code Links -->
+    <ul class="auto-style-36">
+        <li class="auto-style-37">
+            Created a system ball trajectory model using mathematically calculated <strong class="auto-style-38">Bézier curves</strong> to mirror real-world tennis ball physics.
+            <br>
+            <a href="https://github.com/Tee8590/Project-Tennis-r/blob/main/Assets/Scripts/Ball.cs" target="_blank" style="font-size: 11px; color: #A7E3E2; text-decoration: none; border: 1px solid #A7E3E2; padding: 2px 8px; border-radius: 4px; display: inline-block; margin-top: 6px; transition: 0.2s;">View BallPhysics.cs</a>
+        </li>
+        <li class="auto-style-39">
+            Created a smart system that turns a player's finger swipes into accurate racket hits and directions.
+            <br>
+            <a href="https://github.com/Tee8590/Project-Tennis-r/blob/main/Assets/Scripts/SwipeControl.cs" target="_blank" style="font-size: 11px; color: #A7E3E2; text-decoration: none; border: 1px solid #A7E3E2; padding: 2px 8px; border-radius: 4px; display: inline-block; margin-top: 6px; transition: 0.2s;">View InputHandler.cs</a>
+        </li>
+        <li class="auto-style-40">
+            Built an automatic system that keeps the player and the enemy AI in the right positions at all times
+            <br>
+            <a href="https://github.com/Tee8590/Project-Tennis-r/blob/main/Assets/Scripts/Player.cs" target="_blank" style="font-size: 11px; color: #A7E3E2; text-decoration: none; border: 1px solid #A7E3E2; padding: 2px 8px; border-radius: 4px; display: inline-block; margin-top: 6px; transition: 0.2s;">View MovementModule.cs</a>
+        </li>
+    </ul>
+</div>
+</div>
+<!-- ================= SPACE SHOOTER ================= -->
 <div class="project">
-
     <div class="video-wrapper">
-        <video class="preview-video" muted loop playsinline>
-            <source src="videos/snake.mp4" type="video/mp4">
-        </video>
-        <img src="snake.jpg" class="thumbnail">
+        <a href="https://bitbucket.org/tomgodsalo/shootemup/src/main/" target="_blank">
+            <img alt="Space Shooter Banner" class="thumbnail" src="shooter.png"/>
+        </a>
     </div>
 
-    <h3 style="color: #E8A9B0;">Mobile Snake Game | Unity, C# - 06-2024 - 07-2024</h3>
+    <div class="project-content auto-style-22">
+        <!-- Header & Badges -->
+        <div class="auto-style-23">
+            <h3 class="auto-style-24">Space Shooter
+                <div class="project-badges">
+                    <span class="project-badge project-badge-filled">Unity / C#</span>
+                </div>
+            </h3>
+        </div>
 
-    <p>
-        <strong>A fully functional Mobile Game 2D</strong><br>
-        Configure an Android device for game development.<br>
-        Add intuitive touch controls to enhance player experience.<br>
-        Implement procedural generation for gameplay.<br>
-        Deploy to mobile platform.
-    </p>
+        <!-- Role Text -->
+        <p class="auto-style-28">
+            <span class="auto-style-29">Role:</span> <span class="auto-style-30">Developer</span>
+        </p>
 
+        <!-- Sub-Component Technical Tags -->
+        <div class="auto-style-31">
+            <span class="auto-style-32">Performance Optimization</span>
+            <span class="auto-style-33">Object Pooling</span>
+            <span class="auto-style-34">Shader Graph</span>
+            <span class="auto-style-35">Input Systems</span>
+        </div>
+
+        <!-- Bullet Points with Code Links -->
+        <ul class="auto-style-36">
+            <li class="auto-style-37">
+                Engineered a high-performance <strong class="auto-style-38">Object Pooling framework</strong> to manage projectile lifecycle and eliminate garbage collection spikes.
+                <br>
+                <a href="https://bitbucket.org/tomgodsalo/shootemup/src/main/Assets/Scripts/BulletManager.cs" target="_blank" style="font-size: 11px; color: #A7E3E2; text-decoration: none; border: 1px solid #A7E3E2; padding: 2px 8px; border-radius: 4px; display: inline-block; margin-top: 6px; transition: 0.2s;">View BulletManager.cs</a>
+            </li>
+            <li class="auto-style-39">
+                Implemented a scalable <strong class="auto-style-38">Input Manager</strong> with remappable key-binding support to decouple gameplay logic from device hardware.
+                <br>
+                <a href="https://bitbucket.org/tomgodsalo/shootemup/src/main/Assets/Scripts/Root/InputManager.cs" target="_blank" style="font-size: 11px; color: #A7E3E2; text-decoration: none; border: 1px solid #A7E3E2; padding: 2px 8px; border-radius: 4px; display: inline-block; margin-top: 6px; transition: 0.2s;">View InputManager.cs</a>
+            </li>
+            <li class="auto-style-40">
+                Designed custom <strong class="auto-style-38">Retro Scanline Shaders</strong> to achieve a distinct visual aesthetic without compromising render pipeline performance.
+                <br>
+                <a href="https://drive.google.com/file/d/10P7e3yx0A_uBb7S4k3EtDHtBl4VLlXEm/view?usp=sharing" target="_blank" style="font-size: 11px; color: #A7E3E2; text-decoration: none; border: 1px solid #A7E3E2; padding: 2px 8px; border-radius: 4px; display: inline-block; margin-top: 6px; transition: 0.2s;">View Shader Graph</a>
+            </li>
+            <li class="auto-style-40">
+                Architected a <strong class="auto-style-38">Data-Driven Menu System</strong> allowing for rapid iteration of UI transitions and settings configuration.
+                <br>
+                <a href="https://bitbucket.org/tomgodsalo/shootemup/src/main/Assets/Scripts/Root/MenuManager.cs" target="_blank" style="font-size: 11px; color: #A7E3E2; text-decoration: none; border: 1px solid #A7E3E2; padding: 2px 8px; border-radius: 4px; display: inline-block; margin-top: 6px; transition: 0.2s;">View MenuManager.cs</a>
+            </li>
+        </ul>
+    </div>
 </div>
-
-<!-- ================= PROJECT 4 ================= -->
+<!-- ================= MOBILE SNAKE ================= -->
 <div class="project">
-
-    <div class="video-wrapper">
-        <video class="preview-video" muted loop playsinline>
-            <source src="videos/merlin.mp4" type="video/mp4">
-        </video>
-        <img src="mdw.png" class="thumbnail">
-    </div>
-
-    <h3 style="color: #E8A9B0;">Merlin’s Demon War | Unity, C# - 01-2024 - 05-2024</h3>
-
-    <p>
-        <strong>Card Combat Game 2D</strong><br>
-        Understood card combat mechanics.<br>
-        Imported and animated 2D assets.<br>
-        Implemented randomization systems.<br>
-        Added sound effects.
-    </p>
-
+<div class="video-wrapper">
+<video class="preview-video" loop="" muted="" playsinline="">
+<source src="videos/snake.mp4" type="video/mp4"/>
+</video>
+<img alt="Snake Preview" class="thumbnail" src="snake.jpg"/>
 </div>
-
-<!-- ================= PROJECT 5 ================= -->
+<h3>Mobile Snake Game | Unity, C#</h3>
+<p>A fully polished 2D mobile title targeting modern performance boundaries. Implemented grid-constrained mobile swipes, dynamic runtime generation logic, and targeted Android hardware profiling pipelines to maintain minimal memory profiles.</p>
+</div>
+<!-- ================= MERLIN'S DEMON WAR ================= -->
 <div class="project">
-
-    <div class="video-wrapper">
-        <video class="preview-video" muted loop playsinline>
-            <source src="videos/return.mp4" type="video/mp4">
-        </video>
-        <img src="return.png" class="thumbnail">
-    </div>
-
-    <h3 style="color: #E8A9B0;">The Return | Unity, C# - 12-2023 - 03-2024</h3>
-
-    <p>
-        <strong>A Text Adventure 2D Game</strong><br>
-        Built scalable architecture.<br>
-        Practiced game design systems.<br>
-        Delivered a complete playable experience.
-    </p>
-
+<div class="video-wrapper">
+<video class="preview-video" loop="" muted="" playsinline="">
+<source src="videos/merlin.mp4" type="video/mp4"/>
+</video>
+<img alt="Card Game Preview" class="thumbnail" src="mdw.png"/>
 </div>
-        </section>
-
-        <section class="education">
-            <h2>Education</h2>
-            <div class="education-container">
-                <div class="education-card">
-                    <h3><strong>XAMK South-Eastern Finland University of Applied Sciences, Video Games
-                            Creation IVGC Online | 04-2023 -12-2024 </strong></h3>
-                    <p>Higher Vocational Education Diploma, Game Programming</p>
-                    <a href="https://drive.google.com/file/d/1T1tkuB1fcYLERAKXTYgRWzRRnYVQ2_aw/view?usp=sharing"
-                        target="_blank">
-                        <img src="certificate.png" alt="LinkedIn">
-                    </a>
-                </div>
-                <div class="education-card">
-                    <h3><strong>Indira Gandhi National Open University (IGNOU), Masters in Computer Application 2024 -
-                            Ongoing </strong></h3>
-                    <p>Major: Software Engineering, Data Science. | Minor: AI & Machine Learning, and Cloud Computing.
-                    </p>
-                </div>
-                <div class="education-card">
-                    <h3><strong>Mahathma Gandhi University (MG), Bachelor's in Computer Application 2020 - 2023 </strong></h3>
-                    <p>Major: Software Engineering, Data Science. | Minor: AI & Machine Learning, and Cloud Computing.
-                    </p>
-                    <a href="https://drive.google.com/file/d/1T34lhbwk9LRDuBBnE5NKoZ_E_5W6W1Vq/view?usp=sharing"
-                        target="_blank">
-                        <img src="degree.jpg" alt="LinkedIn">
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section class="technical-experience">
-            <h2>Technical Experience</h2>
-            <div class="skills">
-                <span>Game Architecture</span>
-                <span>System Design</span>
-                <span>C#</span>
-                <span>Unity</span>
-                <span>ShaderGraphs</span>
-                <span>JavaScript</span>
-                 <span>Java</span>
-                <!-- <span>React.js</span> -->
-                <span>SQL</span>
-               
-                
-            </div>
-        </section>
-
-        <section class="about" style="background-color: #A7E3E2; padding: 20px; border-radius: 10px; margin-top: 40px;">
-            <h2 style="color: #0F0F0F;">Hi, I'm Tom Godsalo</h2>
-            <!-- <p style="color: #0F0F0F;">
-                I am a 23-year-old <strong>game programmer</strong> -->
-                <!-- currently i'm doing Masters in Computer Application.
-                Before that, Diploma, Game Programming. -->
-            <!-- </p> -->
-            <p style="color: #0F0F0F;">
-                I describe myself as a <strong>problem solver</strong> who seeks opportunities to <strong>learn</strong>
-                new things,
-                while <strong>constantly improving</strong> my skills.
-                I enjoy creating games that feel great to play, with clean code that is easy to read.
-                I thrive on difficult challenges, sometimes a little too much, as I find it hard to let go
-                if I can't come up with a solution during a coding session.
-            </p>
-        </section>
-
-    </div>
-  <script>
+<h3>Merlin’s Demon War | Unity, C#</h3>
+<p>A tactical 2D turn-based card strategy game. Structured algorithmic deck shuffling systems, independent status validation pipelines, and event-driven data frameworks to safely decouple core rules from UI card layer rendering.</p>
+</div>
+</div>
+<!-- ================= EDUCATION ================= -->
+<h2>Education</h2>
+<div class="education-container">
+<div class="education-card">
+<h3>XAMK South-Eastern Finland University of Applied Sciences</h3>
+<p><strong>Video Games Creation IVGC Online (2023 - 2024)</strong></p>
+<p>Higher Vocational Education Diploma, Game Programming</p>
+<a href="https://drive.google.com/file/d/1T1tkuB1fcYLERAKXTYgRWzRRnYVQ2_aw/view?usp=sharing" target="_blank">
+<img alt="View Diploma" src="certificate.png"/>
+</a>
+</div>
+<div class="education-card">
+<h3>Indira Gandhi National Open University (IGNOU)</h3>
+<p><strong>Masters in Computer Application (Ongoing)</strong></p>
+<p>Focus: Software Engineering, Data Structures &amp; System Architecture.</p>
+</div>
+<div class="education-card">
+<h3>Mahathma Gandhi University (MG)</h3>
+<p><strong>Bachelor's in Computer Application (2020 - 2023)</strong></p>
+<p>Focus: Systems Programming, Software Engineering Fundamentals.</p>
+<a href="https://drive.google.com/file/d/1T34lhbwk9LRDuBBnE5NKoZ_E_5W6W1Vq/view?usp=sharing" target="_blank">
+<img alt="View Degree" src="degree.jpg"/>
+</a>
+</div>
+</div>
+<!-- ================= TECHNICAL EXPERIENCE ================= -->
+<h2>Technical Expertise</h2>
+<div class="skills">
+<span>Game Architecture</span>
+<span>System Design</span>
+<span>C# Development</span>
+<span>Unity Engine</span>
+<span>ShaderGraphs</span>
+<span>Git / Plastic</span>
+<span>Data Structures</span>
+<!-- <span>SQL Database Systems</span> -->
+</div>
+<!-- ================= ABOUT SECTION ================= -->
+<section class="about">
+<h2>Hi, I'm Tom Godsalo</h2>
+<p>I describe myself as a systematic problem solver who proactively seeks complex gameplay engineering challenges. I focus on delivering scalable architectures, decoupling backend logic cleanly from game loop presentation elements, and tailoring intuitive game feel options. I thrive on diving deep into code optimization problems until a clean, performance-optimized pattern surfaces.</p>
+</section>
+</div>
+<!-- Script end -->
+   <script>
 document.querySelectorAll('.video-wrapper').forEach(wrapper => {
     const video = wrapper.querySelector('video');
 
@@ -605,7 +755,6 @@ document.querySelectorAll('.video-wrapper').forEach(wrapper => {
         video.currentTime = 0;
     });
 });
-</script> 
+</script>
 </body>
-
 </html>
